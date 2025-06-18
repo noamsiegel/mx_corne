@@ -54,7 +54,7 @@
 &kp GRAVE  &kp Q                  &kp W              &kp E                  &kp R                &kp T        &kp Y      &kp U                 &kp I                   &kp O               &kp P                   &none
 &none      &HRM_L LEFT_COMMAND A  &HRM_L LEFT_ALT S  &HRM_L LEFT_CONTROL D  &HRM_L LEFT_SHIFT F  &kp G        &kp H      &HRM_R RIGHT_SHIFT J  &HRM_R RIGHT_CONTROL K  &HRM_R RIGHT_ALT L  &HRM_R RIGHT_COMMAND O  &none
 &none      &kp Z                  &kp X              &kp C                  &kp V                &kp D        &kp N      &kp M                 &kp COMMA               &kp DOT             &kp FSLH                &none
-                                                     &lt 3 ESCAPE           &lt 1 SPACE          &lt 2 TAB    &lt 5 RET  &lt 4 BACKSPACE       &kp DELETE
+                                                     &lt 3 ESCAPE           &lt 1 SPACE          &lt 2 TAB    &lt 7 RET  &lt 4 BACKSPACE       &kp DELETE
             >;
         };
 
@@ -108,7 +108,14 @@
             >;
         };
 
-        SYMBOLS { status = "reserved"; };
+        SYMBOLS {
+            bindings = <
+&none  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp K_REDO    &kp K_REDO  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO  &none
+&none  &kp LGUI    &kp LALT   &kp LCTRL   &kp LSHFT    &none         &none       &kp LSHFT    &kp LCTRL   &kp LALT   &kp LGUI    &none
+&none  &none       &none      &none       &none        &none         &none       &none        &none       &none      &none       &none
+                              &none       &none        &none         &none       &none        &none
+            >;
+        };
 
         BUTTONS {
             bindings = <
@@ -119,7 +126,7 @@
             >;
         };
 
-        layer_9 {
+        FUNC {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
@@ -128,8 +135,10 @@
             >;
         };
 
-        extra_2 { status = "reserved"; };
+        bad1 { status = "reserved"; };
 
-        extra_1 { status = "reserved"; };
+        bad2 { status = "reserved"; };
+
+        bad3 { status = "reserved"; };
     };
 };
