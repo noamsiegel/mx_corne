@@ -5,6 +5,8 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -52,7 +54,7 @@
 &kp TAB    &kp Q                  &kp W              &kp E                  &kp R                &kp T        &kp Y      &kp U                 &kp I                   &kp O               &kp P                   &kp BSPC
 &kp LCTRL  &HRM_L LEFT_COMMAND A  &HRM_L LEFT_ALT S  &HRM_L LEFT_CONTROL D  &HRM_L LEFT_SHIFT F  &kp G        &kp H      &HRM_R RIGHT_SHIFT J  &HRM_R RIGHT_CONTROL K  &HRM_R RIGHT_ALT L  &HRM_R RIGHT_COMMAND O  &kp SQT
 &kp LSHFT  &kp Z                  &kp X              &kp C                  &kp V                &kp D        &kp N      &kp M                 &kp COMMA               &kp DOT             &kp FSLH                &kp ESC
-                                                     &lt 4 ESCAPE           &lt 1 SPACE          &lt 2 TAB    &lt 9 RET  &lt 5 BACKSPACE       &kp DELETE
+                                                     &lt 3 ESCAPE           &lt 1 SPACE          &lt 2 TAB    &lt 5 RET  &lt 4 BACKSPACE       &kp DELETE
             >;
         };
 
@@ -88,21 +90,12 @@
             >;
         };
 
-        BUTTON {
-            bindings = <
-&none  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp K_REDO    &kp K_REDO  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO  &none
-&none  &kp LGUI    &kp LALT   &kp LCTRL   &kp LSHFT    &none         &none       &kp LSHFT    &kp LCTRL   &kp LALT   &kp LGUI    &none
-&none  &none       &none      &none       &none        &none         &none       &none        &none       &none      &none       &none
-                              &none       &none        &none         &none       &none        &none
-            >;
-        };
-
         MEDIA {
             bindings = <
-&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
-                     &none  &none  &none    &none  &none  &none
+&none  &none   &none   &none   &none   &none    &bl BL_TOG        &bl BL_DEC    &bl BL_INC    &none         &none         &bt BT_CLR_ALL
+&none  &trans  &trans  &trans  &trans  &none    &kp C_PREV        &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &none         &none
+&none  &none   &none   &none   &none   &none    &bt BT_SEL 4      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR
+                       &none   &none   &none    &kp K_PLAY_PAUSE  &none         &kp K_MUTE
             >;
         };
 
@@ -112,6 +105,17 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        SYMBOLS { status = "reserved"; };
+
+        BUTTONS {
+            bindings = <
+&none  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp K_REDO    &kp K_REDO  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO  &none
+&none  &kp LGUI    &kp LALT   &kp LCTRL   &kp LSHFT    &none         &none       &kp LSHFT    &kp LCTRL   &kp LALT   &kp LGUI    &none
+&none  &none       &none      &none       &none        &none         &none       &none        &none       &none      &none       &none
+                              &none       &none        &none         &none       &none        &none
             >;
         };
 
@@ -127,7 +131,5 @@
         extra_2 { status = "reserved"; };
 
         extra_1 { status = "reserved"; };
-
-        SYMBOLS { status = "reserved"; };
     };
 };
